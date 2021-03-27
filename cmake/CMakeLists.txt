@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8...3.19)
 
 project(Verovio)
 
-set(CMAKE_BUILD_TYPE Release)
+#set(CMAKE_BUILD_TYPE Debug)
 
 if (APPLE)
     set(CMAKE_MACOSX_RPATH ON)
@@ -14,7 +14,7 @@ option(NO_PAE_SUPPORT           "Disable Plaine & Easie support"               O
 option(NO_ABC_SUPPORT           "Disable ABC support"                          OFF)
 option(NO_HUMDRUM_SUPPORT       "Disable Humdrum support"                      OFF)
 option(MUSICXML_DEFAULT_HUMDRUM "Enable MusicXML to Humdrum by default"        OFF)
-option(BUILD_AS_LIBRARY         "Build verovio as library"                     OFF)
+option(BUILD_AS_LIBRARY         "Build verovio as library"                     ON)
 
 if (NO_HUMDRUM_SUPPORT AND MUSICXML_DEFAULT_HUMDRUM)
     message(SEND_ERROR "Default MusicXML to Humdrum cannot be enabled by default without Humdrum support")

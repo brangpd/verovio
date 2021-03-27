@@ -35,158 +35,158 @@ void *vrvToolkit_constructorResourcePath(const char* resourcePath)
     return new Toolkit();
 }
 
-void vrvToolkit_destructor(Toolkit *tk)
+void vrvToolkit_destructor(void *tk)
 {
     LogMessage("Deleting toolkit");
-    delete tk;
+    delete (Toolkit *)tk;
 }
 
-bool vrvToolkit_edit(Toolkit *tk, const char *editorAction)
+bool vrvToolkit_edit(void *tk, const char *editorAction)
 {
-    if (!tk->Edit(editorAction)) {
+    if (!((Toolkit *)tk)->Edit(editorAction)) {
         LogError("Could not perform editor action.");
         return false;
     }
     return true;
 }
 
-const char *vrvToolkit_editInfo(Toolkit *tk)
+const char *vrvToolkit_editInfo(void *tk)
 {
-    tk->SetCString(tk->EditInfo());
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->EditInfo());
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getAvailableOptions(Toolkit *tk)
+const char *vrvToolkit_getAvailableOptions(void *tk)
 {
-    tk->SetCString(tk->GetAvailableOptions());
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetAvailableOptions());
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getElementAttr(Toolkit *tk, const char *xmlId)
+const char *vrvToolkit_getElementAttr(void *tk, const char *xmlId)
 {
-    tk->SetCString(tk->GetElementAttr(xmlId));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetElementAttr(xmlId));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getElementsAtTime(Toolkit *tk, int millisec)
+const char *vrvToolkit_getElementsAtTime(void *tk, int millisec)
 {
-    tk->SetCString(tk->GetElementsAtTime(millisec));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetElementsAtTime(millisec));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getExpansionIdsForElement(Toolkit *tk, const char *xmlId)
+const char *vrvToolkit_getExpansionIdsForElement(void *tk, const char *xmlId)
 {
-    tk->SetCString(tk->GetExpansionIdsForElement(xmlId));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetExpansionIdsForElement(xmlId));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getHumdrum(Toolkit *tk)
+const char *vrvToolkit_getHumdrum(void *tk)
 {
-    const char *buffer = tk->GetHumdrumBuffer();
+    const char *buffer = ((Toolkit *)tk)->GetHumdrumBuffer();
     return buffer;
 }
 
-const char *vrvToolkit_getLog(Toolkit *tk)
+const char *vrvToolkit_getLog(void *tk)
 {
-    tk->SetCString(tk->GetLog());
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetLog());
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getMEI(Toolkit *tk, const char *options)
+const char *vrvToolkit_getMEI(void *tk, const char *options)
 {
-    tk->SetCString(tk->GetMEI(options));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetMEI(options));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getMIDIValuesForElement(Toolkit *tk, const char *xmlId)
+const char *vrvToolkit_getMIDIValuesForElement(void *tk, const char *xmlId)
 {
-    tk->SetCString(tk->GetMIDIValuesForElement(xmlId));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetMIDIValuesForElement(xmlId));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getNotatedIdForElement(Toolkit *tk, const char *xmlId)
+const char *vrvToolkit_getNotatedIdForElement(void *tk, const char *xmlId)
 {
-    tk->SetCString(tk->GetNotatedIdForElement(xmlId));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetNotatedIdForElement(xmlId));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getOptions(Toolkit *tk, bool default_values)
+const char *vrvToolkit_getOptions(void *tk, bool default_values)
 {
-    tk->SetCString(tk->GetOptions(default_values));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetOptions(default_values));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-int vrvToolkit_getPageCount(Toolkit *tk)
+int vrvToolkit_getPageCount(void *tk)
 {
-    return tk->GetPageCount();
+    return ((Toolkit *)tk)->GetPageCount();
 }
 
-int vrvToolkit_getPageWithElement(Toolkit *tk, const char *xmlId)
+int vrvToolkit_getPageWithElement(void *tk, const char *xmlId)
 {
-    return tk->GetPageWithElement(xmlId);
+    return ((Toolkit *)tk)->GetPageWithElement(xmlId);
 }
 
-double vrvToolkit_getTimeForElement(Toolkit *tk, const char *xmlId)
+double vrvToolkit_getTimeForElement(void *tk, const char *xmlId)
 {
-    return tk->GetTimeForElement(xmlId);
+    return ((Toolkit *)tk)->GetTimeForElement(xmlId);
 }
 
-const char *vrvToolkit_getTimesForElement(Toolkit *tk, const char *xmlId)
+const char *vrvToolkit_getTimesForElement(void *tk, const char *xmlId)
 {
-    tk->SetCString(tk->GetTimesForElement(xmlId));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetTimesForElement(xmlId));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_getVersion(Toolkit *tk)
+const char *vrvToolkit_getVersion(void *tk)
 {
-    tk->SetCString(tk->GetVersion());
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->GetVersion());
+    return ((Toolkit *)tk)->GetCString();
 }
 
-bool vrvToolkit_loadData(Toolkit *tk, const char *data)
+bool vrvToolkit_loadData(void *tk, const char *data)
 {
-    return tk->LoadData(data);
+    return ((Toolkit *)tk)->LoadData(data);
 }
 
-bool vrvToolkit_loadZipDataBase64(Toolkit *tk, const char *data)
+bool vrvToolkit_loadZipDataBase64(void *tk, const char *data)
 {
-    return tk->LoadZipDataBase64(data);
+    return ((Toolkit *)tk)->LoadZipDataBase64(data);
 }
 
-bool vrvToolkit_loadZipDataBuffer(Toolkit *tk, const unsigned char *data, int length)
+bool vrvToolkit_loadZipDataBuffer(void *tk, const unsigned char *data, int length)
 {
-    return tk->LoadZipDataBuffer(data, length);
+    return ((Toolkit *)tk)->LoadZipDataBuffer(data, length);
 }
 
-const char *vrvToolkit_renderToMIDI(Toolkit *tk, const char *c_options)
+const char *vrvToolkit_renderToMIDI(void *tk, const char *c_options)
 {
-    tk->SetCString(tk->RenderToMIDI());
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->RenderToMIDI());
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_renderToSVG(Toolkit *tk, int page_no, const char *c_options)
+const char *vrvToolkit_renderToSVG(void *tk, int page_no, const char *c_options)
 {
-    tk->SetCString(tk->RenderToSVG(page_no, false));
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->RenderToSVG(page_no, false));
+    return ((Toolkit *)tk)->GetCString();
 }
 
-const char *vrvToolkit_renderToTimemap(Toolkit *tk)
+const char *vrvToolkit_renderToTimemap(void *tk)
 {
-    tk->SetCString(tk->RenderToTimemap());
-    return tk->GetCString();
+    ((Toolkit *)tk)->SetCString(((Toolkit *)tk)->RenderToTimemap());
+    return ((Toolkit *)tk)->GetCString();
 }
 
-void vrvToolkit_redoLayout(Toolkit *tk)
+void vrvToolkit_redoLayout(void *tk)
 {
-    tk->RedoLayout();
+    ((Toolkit *)tk)->RedoLayout();
 }
 
-void vrvToolkit_redoPagePitchPosLayout(Toolkit *tk)
+void vrvToolkit_redoPagePitchPosLayout(void *tk)
 {
-    tk->RedoPagePitchPosLayout();
+    ((Toolkit *)tk)->RedoPagePitchPosLayout();
 }
 
-const char *vrvToolkit_renderData(Toolkit *tk, const char *data, const char *options)
+const char *vrvToolkit_renderData(void *tk, const char *data, const char *options)
 {
     vrvToolkit_setOptions(tk, options);
     vrvToolkit_loadData(tk, data);
@@ -194,9 +194,9 @@ const char *vrvToolkit_renderData(Toolkit *tk, const char *data, const char *opt
     return vrvToolkit_renderToSVG(tk, 1, options);
 }
 
-void vrvToolkit_setOptions(Toolkit *tk, const char *options)
+void vrvToolkit_setOptions(void *tk, const char *options)
 {
-    if (!tk->SetOptions(options)) {
+    if (!((Toolkit *)tk)->SetOptions(options)) {
         LogError("Could not load JSON options.");
     }
 }

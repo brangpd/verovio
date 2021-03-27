@@ -29,6 +29,9 @@ tools/build-library
 tools/libverovio.dylib
 tools/libverovio.so
 
+cmake/cmake-build-*
+cmake/CMakeSettings.json
+
 # emscripten build
 emscripten/data/
 emscripten/build/
@@ -92,3 +95,6 @@ Release/
 
 # Fonts
 fonts/tmp/
+
+# IDEA
+**/.idea
