@@ -98,3 +98,5 @@ fonts/tmp/
 
 # IDEA
 **/.idea
+**/cmake-build-*
+CMakeLists.txt.user

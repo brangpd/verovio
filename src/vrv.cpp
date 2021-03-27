@@ -60,7 +60,7 @@ namespace vrv {
 // Static members with some default values
 //----------------------------------------------------------------------------
 
-std::string Resources::s_path = "/usr/local/share/verovio";
+std::string Resources::s_path = "../../data";
 Resources::GlyphTextMap Resources::s_textFont;
 Resources::GlyphMap Resources::s_font;
 Resources::StyleAttributes Resources::s_currentStyle;
